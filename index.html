@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body>
+    <div class="main-container">
+        <h1>Length Convertor</h1>
+
+        <input class="input input-value" type="text" id="input" placeholder="value">
+        <span>=</span>
+        <input class="input input-result" type="text" id="result" placeholder="result">
+
+       <br >
+        <select class="drp-dwn list-value"  id="input-type">
+            <option value="feet">Feet</option>
+            <option value="inch">Inch</option>
+            <option value="meter">Meter</option>
+            <option value="CM">Centimeter</option>
+            <option value="KM">Kilometer</option>
+        </select>
+        <select class="drp-dwn" id="result-type">
+            <option value="feet">Feet</option>
+            <option value="inch">Inch</option>
+            <option value="meter">Meter</option>
+            <option value="CM">Centimeter</option>
+            <option value="KM">Kilometer</option>
+        </select>
+
+       
+    </div>
+
+
+    <script>
+      
+      let input = document.getElementById('input')
+      let result = document.getElementById('result')
+
+      let inputType = document.getElementById('input-type')
+      let resultType = document.getElementById('result-type')
+
+      let inputTypeValue,resultTypeValue;
+
+      input.addEventListener("keyup",myResult)
+      inputType.addEventListener("change",myResult)
+      resultType.addEventListener("change",myResult)
+
+      
+      inputTypeValue = inputType.value
+        resultTypeValue = resultType.value
+
+      function myResult(){
+    
+        inputTypeValue = inputType.value
+        resultTypeValue = resultType.value
+
+        
+
+        if (!isNaN(input.value)) {    
+
+            // feet to Others >>>>>>>>>>>>>>>
+        if(inputTypeValue === "feet" && resultTypeValue === "inch"){
+           let inchValue = input.value * 12
+            result.value = inchValue
+
+        }else if(inputTypeValue === "feet" && resultTypeValue === "meter"){
+            let meterValue = input.value  * 0.3048
+            result.value = meterValue
+        
+
+        }else if(inputTypeValue === "feet" && resultTypeValue === "CM"){
+            let cmValue = input.value  * 30.48
+            result.value = cmValue
+        
+
+        }else if(inputTypeValue === "feet" && resultTypeValue === "KM"){
+            let kmValue = input.value  * 0.0003048
+            result.value = kmValue
+        
+        }else if(inputTypeValue === "feet" && resultTypeValue === "feet"){
+           
+            result.value = input.value
+        }
+
+         
+        // meter to others   <<<<<<<<<<<<<<<<<<<
+        if(inputTypeValue === "meter" && resultTypeValue === "CM"){
+            let cmValue = input.value  * 100
+            result.value = cmValue
+        
+
+        }else if(inputTypeValue === "meter" && resultTypeValue === "KM"){
+            let kmValue = input.value  * 0.001
+            result.value = kmValue
+        
+        
+        }else if(inputTypeValue === "meter" && resultTypeValue === "feet"){
+            let feetValue = input.value  * 3.28084
+            result.value = feetValue
+        
+        
+        }else if(inputTypeValue === "meter" && resultTypeValue === "inch"){
+            let inchValue = input.value  * 39.3701
+            result.value = inchValue
+        
+        }else if(inputTypeValue === "meter" && resultTypeValue === "meter"){
+           
+           result.value = input.value
+       }
+
+
+    //    inch to others >>>>>>>>>>>>>>
+        if(inputTypeValue === "inch" && resultTypeValue === "CM"){
+            let cmValue = input.value  * 2.54
+            result.value = cmValue
+        
+
+        }else if(inputTypeValue === "inch" && resultTypeValue === "KM"){
+            let kmValue = input.value  * 0.0000254
+            result.value = kmValue
+        
+        
+        }else if(inputTypeValue === "inch" && resultTypeValue === "feet"){
+            let feetValue = input.value / 12
+            result.value = feetValue
+
+        }else if(inputTypeValue === "inch" && resultTypeValue === "meter"){
+            let meterValue = input.value  * 0.0254
+            result.value = meterValue
+        
+        }else if(inputTypeValue === "inch" && resultTypeValue === "inch"){
+           
+           result.value = input.value
+       }
+
+
+    //    CM to others <<<<<<<<<<<<<<<<<<<<
+    if(inputTypeValue === "CM" && resultTypeValue === "inch"){
+    let cmValue = input.value  / 2.54
+            result.value = cmValue
+        
+
+        }else if(inputTypeValue === "CM" && resultTypeValue === "KM"){
+            let kmValue = input.value  / 100000
+            result.value = kmValue
+        
+        
+        }else if(inputTypeValue === "CM" && resultTypeValue === "feet"){
+            let feetValue = input.value / 30.48
+            result.value = feetValue
+
+        }else if(inputTypeValue === "CM" && resultTypeValue === "meter"){
+            let meterValue = input.value / 100
+            result.value = meterValue
+        
+        }else if(inputTypeValue === "CM" && resultTypeValue === "CM"){
+           
+           result.value = input.value
+       }
+
+    //    KM to others >>>>>>>>>>>>>>>>
+    if(inputTypeValue === "KM" && resultTypeValue === "inch"){
+    let cmValue = input.value  * 39370.1
+            result.value = cmValue
+        
+
+        }else if(inputTypeValue === "KM" && resultTypeValue === "CM"){
+            let kmValue = input.value  * 100000
+            result.value = kmValue
+        
+        
+        }else if(inputTypeValue === "KM" && resultTypeValue === "feet"){
+            let feetValue = input.value * 3280.84
+            result.value = feetValue
+
+        }else if(inputTypeValue === "KM" && resultTypeValue === "meter"){
+            let meterValue = input.value * 1000
+            result.value = meterValue
+        
+        }else if(inputTypeValue === "KM" && resultTypeValue === "KM"){
+           
+           result.value = input.value
+       }
+
+      }
+    }
+
+
+    </script>
+</body>
+</html>
